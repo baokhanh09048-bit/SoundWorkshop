@@ -1,0 +1,14 @@
+config_version=5
+[application]
+config/name="SoundWorkshopRegression"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="SoundWorkshopRegression"
+run/main_scene="res://Regression.tscn"
+config/features=PackedStringArray("4.5", "C#")
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+[dotnet]
+project/assembly_name="src.Regression"
+[rendering]
+renderer/rendering_method="gl_compatibility"

@@ -1,0 +1,28 @@
+using Godot.Bridge;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Logging;
+using MegaCrit.Sts2.Core.Modding;
+using MySfxMod;
+
+namespace src.Scripts;
+
+// 必须要加的属性，用于注册Mod。字符串和初始化函数命名一致。
+[ModInitializer(nameof(Init))]
+public class Entry
+{
+    // 初始化函数
+    public static void Init()
+    {
+        SoundSettings.Initialize();
+        SoundStore.Initialize();
+        BgmRuntime.Initialize();
+        SoundWorkshopLauncher.Initialize();
+        // 打patch（即修改游戏代码的功能）用
+        // 传入参数随意，只要不和其他人撞车即可
+        var harmony = new Harmony("sts2.llxs.MySfxMod");
+        harmony.PatchAll();
+        // 使得tscn可以加载自定义脚本
+        ScriptManagerBridge.LookupScriptsInAssembly(typeof(Entry).Assembly);
+        Log.Info("[MySfxMod] 0.8.3 initialized: stable/beta compatible, independent BGM playlists for all 12 bosses are active.");
+    }
+}

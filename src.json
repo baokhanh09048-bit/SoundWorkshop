@@ -1,0 +1,12 @@
+{
+  "id": "src",           
+  "name": "音效工坊——自定义音效",
+  "author": "洛里夏思",
+  "description": "在卡牌、遗物和怪物图鉴中直接绑定对象与动作音效；音效工坊负责其他音效、BGM、播放设置与音效包导入导出。",
+  "version": "0.8.3",
+  "has_pck": false,         
+  "has_dll": true,        
+  "min_game_version": "0.107.1",
+  "dependencies": [{ "id": "BaseLib", "min_version": "3.4.5" }],
+  "affects_gameplay":false 
+}
